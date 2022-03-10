@@ -68,7 +68,7 @@ export default {
       teller: 0,
       titel: '',
       beschrijving: '',
-      taken: []
+      taken: JSON.parse(localStorage.getItem('takenlijst') || '[]')
     }
   },
    methods: {
@@ -80,16 +80,25 @@ export default {
         gedaan: false
       }
       this.taken.push(taak)
+      this.bewaarTaken()
       this.teller++
       this.titel = ''
       this.beschrijving = ''
-      document.getElementById("titel").focus();
+      document.getElementById("titel").focus()
+    },
+    bewaarTaken() {
+      localStorage.setItem('takenlijst', JSON.stringify(this.taken))
     },
     veranderStatus(taak) {
-      taak.gedaan = !taak.gedaan;
+      taak.gedaan = !taak.gedaan
+      this.bewaarTaken()
     },
     verwijderTaak(index) {
-      this.taken.splice(index, 1);
+      let text = "Bent u zeker dat u deze taak wil verwijderen?";
+      if (confirm(text) == true) {
+        this.taken.splice(index, 1)
+        this.bewaarTaken()
+      }
     }
   }
   ,
