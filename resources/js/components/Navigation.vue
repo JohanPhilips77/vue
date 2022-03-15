@@ -20,12 +20,12 @@ export default {
     methods: {
         async logout() {
             await axios.get('/api/logout').then(response => {
-                console.log(response);
+                //console.log(response);
                 localStorage.removeItem('token')
                 this.$router.push('/login'); 
             }).catch((errors) =>{
                 this.errors = errors.response.data.errors;
-                console.log(errors.response.data.errors);
+                //console.log(errors.response.data.errors);
             });
         }
     },

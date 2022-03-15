@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // FOREIGN KEY TO TASKS
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
 }

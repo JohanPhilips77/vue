@@ -19667,13 +19667,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return axios.get('/api/logout').then(function (response) {
-                  console.log(response);
+                  //console.log(response);
                   localStorage.removeItem('token');
 
                   _this.$router.push('/login');
                 })["catch"](function (errors) {
-                  _this.errors = errors.response.data.errors;
-                  console.log(errors.response.data.errors);
+                  _this.errors = errors.response.data.errors; //console.log(errors.response.data.errors);
                 });
 
               case 2:
