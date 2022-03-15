@@ -1,11 +1,11 @@
 <template>
     <nav class="nav-bar">
         <div v-if="titel !== 'Dashboard'">
-            <router-link to='/login' class="button buttonLink">Login</router-link> 
-            <router-link to='/register' class="button buttonLink">Register</router-link>
+            <router-link to='/login' class="button buttonLink">Aanmelden</router-link> 
+            <router-link to='/register' class="button buttonLink">Registeren</router-link>
         </div>
         <div v-else>
-            <a @click="logout" type="submit" class="button buttonLink">Logout</a>
+            <a @click="logout" type="submit" class="button buttonLink">Afmelden</a>
         </div>
     </nav>
 </template>

@@ -1,7 +1,3 @@
-.activeLink {
-    font-weight: bold;
-}
-
 body,
 h1,
 h3,
@@ -44,6 +40,7 @@ p {
 }
 
 input {
+    width: 90%;
     font-size: 20px;
     height: 40px;
     padding: 10px;
@@ -62,7 +59,7 @@ table {
 }
 
 textarea {
-    --width: 100%;
+    width: 90%;
     height: 70px;
     margin: 10px;
     padding: 10px;
@@ -77,6 +74,14 @@ ul {
 
 li {
     margin-bottom: 10px;
+}
+
+.activeLink {
+    font-weight: bold;
+}
+
+.fout {
+    color: red;
 }
 
 .button {
@@ -118,7 +123,7 @@ li {
     padding: 10px;
 }
 
-.taak-form {
+.formulier {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -172,7 +177,7 @@ li {
 }
 
 @media only screen and (min-width: 650px) {
-    .taak-form {
+    .formulier {
         width: 600px;
     }
 }
