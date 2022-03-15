@@ -134,6 +134,10 @@ li {
     box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
 }
 
+.formulierRij {
+    margin-bottom: 20px;
+}
+
 .taakdone {
     --background-color: #41B883;
     background: linear-gradient(-90deg, #41B883, #35495E);

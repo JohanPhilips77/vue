@@ -3,14 +3,14 @@
     <form class="formulier">
         <h3>Log in op jouw account</h3>
         <!-- EMAIL -->
-        <div>
+        <div class="formulierRij">
             <input placeholder="Email" type="email" v-model="form.email" autocomplete="email">
-            <p class="text-danger" v-text="errors.email"></p>
+            <p class="fout" v-text="errors.email"></p>
         </div>
         <!-- WACHTWOORD -->
-        <div>
+        <div class="formulierRij">
             <input placeholder="Wachtwoord" type="password" v-model="form.password" name="password" autocomplete="current-password">
-            <p class="text-danger" v-text="errors.password"></p>
+            <p class="fout" v-text="errors.password"></p>
         </div>
         <!-- KNOP EN LINK -->
         <table>
@@ -33,7 +33,22 @@
                     email: '',
                     password: ''
                 },
-                errors: []
+                errors: {}
+            }
+        },
+        methods: {
+            async loginUser() {
+                await axios.get('/sanctum/csrf-cookie').then(response => {
+                    axios.post('/api/login', this.form).then(response => {
+                        localStorage.setItem('token', response.data.token)
+                        this.form.email = this.form.password = ''
+                        this.errors = {}
+                        this.$router.push({ name: "Dashboard"}); 
+                    }).catch((errors) =>{
+                        this.form.password = ''
+                        this.errors = errors.response.data.errors;
+                    });
+                });
             }
         },
         mounted() {

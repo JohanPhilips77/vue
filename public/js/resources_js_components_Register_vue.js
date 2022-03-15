@@ -26,7 +26,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     saveForm: function saveForm() {
+      var _this = this;
+
       console.log('SaveForm');
+      axios.post('/api/register', this.form).then(function (response) {
+        console.log(response.data);
+        _this.form.name = _this.form.email = _this.form.password = _this.form.password_confirmation = '';
+        _this.errors = {};
+
+        _this.$router.push('/login');
+      })["catch"](function (errors) {
+        console.log(errors.response.data.errors);
+        _this.errors = errors.response.data.errors;
+      });
     }
   },
   mounted: function mounted() {

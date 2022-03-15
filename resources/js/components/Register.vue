@@ -50,7 +50,16 @@
         },
         methods:{
             saveForm(){
-                console.log('SaveForm')            
+                console.log('SaveForm')       
+                axios.post('/api/register', this.form).then((response) =>{
+                    console.log(response.data);
+                    this.form.name = this.form.email = this.form.password = this.form.password_confirmation = ''
+                    this.errors = {}
+                    this.$router.push('/login')
+                }).catch((errors) =>{
+                    console.log(errors.response.data.errors);
+                    this.errors = errors.response.data.errors;
+                })     
             }
         },
         mounted() {
