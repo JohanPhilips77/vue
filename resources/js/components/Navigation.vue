@@ -7,11 +7,15 @@
         <div v-else>
             <a @click="logout" type="submit" class="button buttonLink">Afmelden</a>
         </div>
+        <div v-if="titel === 'Dashboard'" class="kaart">
+            <p>Aantal: {{ aantalTaken }}</p>
+        </div>
     </nav>
+    
 </template>
 <script>
 export default {
-    props:['titel'],
+    props:['titel','aantalTaken'],
     data() {
         return {
             errors: {}

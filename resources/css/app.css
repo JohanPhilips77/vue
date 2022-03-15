@@ -84,6 +84,10 @@ li {
     color: red;
 }
 
+.laden {
+    color: gray;
+}
+
 .button {
     margin: 10px;
     background-color: #39495c;
@@ -115,10 +119,9 @@ li {
     cursor: not-allowed;
 }
 
-.geentaken {
+.boodschap {
     text-align: center;
     font-size: 25px;
-    color: red;
     margin: 20px;
     padding: 10px;
 }
