@@ -6,11 +6,11 @@
     export default {
         data() {
             return {
-                title: 'Login'
+                title: 'Register'
             }
         },
         mounted() {
-            console.log('Login Component mounted.')
+            console.log('Register Component mounted.')
         }
     }
 </script>

@@ -6,11 +6,11 @@
     export default {
         data() {
             return {
-                title: 'Login'
+                title: 'Dashboard'
             }
         },
         mounted() {
-            console.log('Login Component mounted.')
+            console.log('Dashboard Component mounted.')
         }
     }
 </script>
