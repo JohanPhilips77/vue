@@ -1,28 +1,52 @@
 <template>
-    <nav-component :titel="title"></nav-component>
-    <form class="formulier">
-        <h3>Log in op jouw account</h3>
-        <!-- EMAIL -->
-        <div class="formulierRij">
-            <input placeholder="Email" type="email" v-model="form.email" autocomplete="email">
-            <p class="fout" v-text="errors.email"></p>
+<div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address..."
+                                                v-model="form.email" autocomplete="email">
+                                            <p class="text-danger" v-text="errors.email"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password"
+                                                v-model="form.password" autocomplete="current-password">
+                                            <p class="text-danger" v-text="errors.password"></p>
+                                        </div>
+
+                                        <a href="#" @click.prevent="loginUser" class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </a>
+
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <router-link to='/register' class="small">Create an Account!</router-link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- WACHTWOORD -->
-        <div class="formulierRij">
-            <input placeholder="Wachtwoord" type="password" v-model="form.password" name="password" autocomplete="current-password">
-            <p class="fout" v-text="errors.password"></p>
-        </div>
-        <!-- KNOP EN LINK -->
-        <table>
-            <tr>
-                <td>
-                    <button @click.prevent="loginUser" type="submit" class="button">Inloggen</button>
-                </td><td>
-                    <router-link to='/register'>Een nieuw account aanmaken</router-link>
-                </td>
-            </tr>
-        </table>
-    </form>
+    </div>
 </template>
 <script> 
     export default {
@@ -50,9 +74,6 @@
                     });
                 });
             }
-        },
-        mounted() {
-            console.log('Login Component mounted.')
         }
     }
 </script>
