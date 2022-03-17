@@ -1,8 +1,19 @@
 textarea {
     width: 100%;
-    height: 70px;
     margin: 0;
     padding: 10px;
     font-size: 20px;
     resize: none;
+}
+
+.disabledButton {
+    cursor: not-allowed;
+}
+
+.taakdone {
+    opacity: 0.75;
+}
+
+.done {
+    text-decoration: line-through;
 }
